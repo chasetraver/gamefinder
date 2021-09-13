@@ -2,7 +2,8 @@ Website I made in 2021 to help figure out what the best board games are to play 
 Website *heavily* relies on the BGG XML API to get the data necessary. (https://boardgamegeek.com/wiki/page/BGG_XML_API2)
 As a result of this, any person searching their collection would have to have a Board Game Geek account, and have their games already uploaded to there.
 
-Run via running 'run.py'
+Launch via executing 'run.py'
+First search may take a few minutes, as the program will download the thumbnails to the static folder for each game it does not have a thumbnail for yet. This is especially true is the first game collection ran is particularly large.
 
 made using Python 3.9 with the following libraries:
 Flask 2.0.1
