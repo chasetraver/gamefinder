@@ -1,0 +1,122 @@
+
+{% extends "stickysearch.html" %}
+{% block content %}
+
+
+    <h1 class="center center-text search-header"> {{games|length}} Games Found!    </h1>
+
+        <!-- pagination display logic  -->
+    <h2 class="center center-text pt-5 pb-3">
+        {% if pagination.page * pagination.per_page < games|length %}
+           Games {{pagination.page * pagination.per_page - pagination.per_page + 1}} - {{pagination.page * pagination.per_page}}
+        {% else %}
+            Games {{pagination.page * pagination.per_page - pagination.per_page + 1}} - {{games|length}}
+        {% endif %}
+    </h2>
+        <!-- pagination navbar -->
+    {% if pagination.pages|length != 1%}
+        <h3 class="center center-text">
+            {% if pagination.page != 1%}
+                <a href = "{{pagination.page_href(pagination.page-1)}}"> << </a>
+            {% else %}
+                <<
+            {% endif %}
+            {% for page in pagination.pages %}
+                {% if page == None %}
+                    ...
+                {% else %}
+                    {% if page == pagination.page %}
+                        {{ page }}
+                    {% else %}
+                        <a href = "{{pagination.page_href(page)}}"> {{page}} </a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% if pagination.page != pagination.pages[-1] %}
+                <a href = "{{ pagination.page_href(pagination.page+1) }}"> >> </a>
+            {% else %}
+                >>
+            {% endif %}
+        </h3>
+    {% endif %}
+
+    <!-- game display -->
+
+    {% for game in games[pagination.page * pagination.per_page - pagination.per_page:pagination.page * pagination.per_page] %}
+        <div class="center game-outer-border container-fluid">
+            <div class="game-inner-border">
+                 <!-- game title -->
+                <div class="game-title center center-text">
+                    {{ loop.index + pagination.skip }}. {{game['name']}} <br>
+                </div>
+
+
+                <div class="pl-3 pr-3 pb-3">
+                    <!-- game misc info -->
+                    <div class="game-image">
+                            <img src="{{url_for('static', filename=game['image'])}}" alt="{{game['name']}}'s box cover-art" >
+                    </div>
+                    <div class="game-info">
+                        <!-- game image -->
+
+                        <!-- game Rating -->
+                        BGG Rating: {{game['rating']}}/10
+                        <br>
+                        <!-- game bestplayers -->
+                        {% if game['bestplayers']|length > 1%}
+                         Best with {{game['bestplayers'][0]}}-{{game['bestplayers'][-1]}} players
+                        <br>
+                        {% elif game['bestplayers']|length == 1%}
+                        {% if game['bestplayers'][0] == None %}
+                        {% else %}
+                        Best with {{game['bestplayers'][0]}} players
+                        <br>
+                        {% endif %}
+                        {% else %}
+                        {% endif %}
+                        <!-- game complexity -->
+                        Complexity: {{game['complexity']}}/5
+                    </div>
+                <!-- game description-->
+                    <div class="game-description-border" >
+                        <div class="game-description">
+                            {{game['description']}}
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <img src="{{url_for('static', filename='croppedshelf.png')}}" alt="decorative shelf the game appears to be resting upon. It's quite delightful and whimsical." >
+        </div>
+    {% endfor %}
+
+    <!-- secondary pagination navbar -->
+    {% if pagination.pages|length != 1%}
+        <h3 class="center center-text">
+            {% if pagination.page != 1%}
+                <a href = "{{pagination.page_href(pagination.page-1)}}"> << </a>
+            {% else %}
+                <<
+            {% endif %}
+            {% for page in pagination.pages %}
+                {% if page == None %}
+                    ...
+                {% else %}
+                    {% if page == pagination.page %}
+                        {{ page }}
+                    {% else %}
+                        <a href = "{{pagination.page_href(page)}}"> {{page}} </a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% if pagination.page != pagination.pages[-1] %}
+                <a href = "{{ pagination.page_href(pagination.page+1) }}"> >> </a>
+            {% else %}
+                >>
+            {% endif %}
+        </h3>
+    {% endif %}
+
+{% endblock content %}

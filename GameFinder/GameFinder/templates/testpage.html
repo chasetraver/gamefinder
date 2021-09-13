@@ -1,0 +1,32 @@
+{% extends "search.html" %}
+{% block content %}
+
+
+    <h1 class="center center-text"> Games Found! </h1>
+    {{ pagination.info }}
+    {{ pagination.links }}
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in testlist %}
+      <tr>
+        <td>{{ loop.index + pagination.skip }}</td>
+        <td>{{ item }}</td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    {{ pagination.links }}
+
+
+
+<div class="container">
+    <h2 class="center-text"> Search again?</h2>
+
+</div>
+{% endblock content %}

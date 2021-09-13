@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+{% block extension %}
+  <span class="home-title center-text"> GameFinder</span>
+  <!-- Error Display Block -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes center center-text">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <!-- Search Block -->
+  <div class="center home-search">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Find the perfect game for your table, <i>that you already own! </i></legend>
+          <div class="form-group">
+            {{ form.username.label(class="form-control-label") }}
+            <div>
+              {{ form.username}}
+            </div>
+
+          </div>
+
+          <div>
+            Number of Players:
+            {{form.numplayers}}
+
+          </div>
+
+
+          <div class = "form-check">
+            {{form.bestonly(class="form-check-input")}}
+            {{form.bestonly.label(class="form-check-label")}}
+          </div>
+            <div class = "form-check">
+            {{form.hideplayed(class="form-check-input")}}
+            {{form.hideplayed.label(class="form-check-label")}}
+          </div>
+          <div>
+             Complexity Range:
+            {{form.minimumcomplexity}}
+            -
+            {{form.maximumcomplexity}}
+          </div>
+          <div class ="form-group pt-2">
+            {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+          <small class="text-muted">
+            Don't have a Board Game Geek account?
+            <a href="https://www.boardgamegeek.com/join">Create one here!</a>
+         </small>
+        </fieldset>
+      </form>
+
+    </div>
+
+
+{% endblock extension %}

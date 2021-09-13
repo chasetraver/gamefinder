@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+    {% if title %}
+    <title> {{title}} </title>
+    {% else %}
+    <title> GameFinder </title>
+    {% endif %}
+</head>
+<body>
+    <div>
+        <img src="{{url_for('static', filename='GameFinder.png')}}" class="img-thumbnail title-image" alt="Game Finder 'Logo'">
+    </div>
+
+    <h2 class="center-text"> <a href="{{url_for('home')}}"> Return to GameFinder Home</a></h2>
+    <div class="center game-outer-border container-fluid">
+        <div class="game-inner-border">
+            <div class="game-description-border about-padding" >
+                <div class="game-description">
+                    Chase Traver made this using Flask and Python 3.9. Contact me with suggestions or job offers at hirechasetraver@gmail.com<br>
+                    Code for this site can be found at <a href="https://github.com/chasetraver/gamefinder"> https://github.com/chasetraver/gamefinder </a> <br>
+                    Data and game's cover-art acquired via the BoardGameGeek XML API and the BoardGameGeek site, respectively.<br>
+                    GameFinder is not otherwise affiliated with or endorsed by BoardGameGeek. <br>
+                    Wood background texture from <a href="https://www.myfreetextures.com/a-dark-and-deep-seamless-wood-texture/"> myfreetextures.com </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

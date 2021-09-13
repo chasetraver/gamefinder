@@ -1,0 +1,13 @@
+
+{% extends "layout.html" %}
+{% block extension %}
+    <span class="home-title center-text"> GameFinder</span>
+    <!-- Error Display Block -->
+    <h2 class="center center-text">
+      {{error}}
+    </h2>
+    <h3 class="center center-text home-search mb-300">
+        Feel free to return to the previous page or click <a href="{{url_for('home')}}">here</a> to return to the home page.
+    </h3>
+
+{% endblock extension %}

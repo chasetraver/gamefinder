@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block extension %}
+
+<div class="center sticky-search">
+  <span>Search Again?</span>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+          <!-- top row -->
+          <div class="form-group sticky-top-row">
+            Username
+            <span class="sticky-search-player-padding">
+              Players
+            </span>
+            <div class="sticky-search-top-padding">
+              <span>
+                  {{ form.username}}
+                <span class="sticky-search-padding">
+                  {{form.numplayers}}
+                </span>
+
+                <span class="sticky-search-padding">
+                  {{ form.submit(class="btn btn-outline-info") }}
+                </span>
+
+              </span>
+            </div>
+            <!-- check boxes -->
+
+            <div>
+              <span class="sticky-search-padding">
+                 Complexity Range:
+                {{form.minimumcomplexity}}
+                 -
+                {{form.maximumcomplexity}}
+              </span>
+              <span class="sticky-best-box">
+                {{form.bestonly(class="form-check-input")}}
+                <label> {{form.bestonly.label(class="form-check-label")}} </label>
+              </span>
+              <span class="sticky-played-box">
+                {{form.hideplayed(class="form-check-input")}}
+                <label>{{form.hideplayed.label(class="form-check-label")}} </label>
+              </span>
+
+            </div>
+            <!-- BGG register link -->
+          <small class="text-muted">
+            Don't have a Board Game Geek account?
+            <a href="https://www.boardgamegeek.com/join">Create one here!</a>
+         </small>
+        </fieldset>
+      </form>
+
+    </div>
+
+<div class="sticky-margin"> deadspace </div>
+{% block content %}
+{% endblock content%}
+{% endblock extension %}
