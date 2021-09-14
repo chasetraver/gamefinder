@@ -1,1 +1,1 @@
-web: gunicorn app:GameFinder.wsgi
+web: gunicorn app:run.py
