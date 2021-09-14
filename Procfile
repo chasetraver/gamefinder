@@ -1,1 +1,1 @@
-web: gunicorn GameFinder: app
+web: gunicorn GameFinder:app
