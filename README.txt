@@ -1,4 +1,5 @@
-Website I made in 2021 to help figure out what the best board games are to play given a collection and a number of players. 
+Website I made in 2021 to help figure out what the best board games are to play given a collection and a number of players.
+Live at https://chasegamefinder.herokuapp.com/ as of 9/14/2021
 Website *heavily* relies on the BGG XML API to get the data necessary. (https://boardgamegeek.com/wiki/page/BGG_XML_API2)
 As a result of this, any person searching their collection would have to have a Board Game Geek account, and have their games already uploaded to there.
 
