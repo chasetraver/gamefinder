@@ -2,6 +2,7 @@ import requests
 import time
 from bs4 import BeautifulSoup
 from flask import Markup
+import lxml
 import urllib.request
 import os
 
@@ -20,7 +21,6 @@ class BGGError(Exception):
 
 
 def recommend_games(playercount, username, bestonly=False, hidePlayed=False, minimumcomplexity=0, maximumcomplexity=5):
-    # This is probably the place to create sub-lists by complexity, but I may just do that in the html
     usergames = get_games(username, hidePlayed)
     if usergames is None:
         return None
@@ -33,7 +33,7 @@ def get_games(username, hidePlayed):
     response = query_bgg(f"collection?username={username}&own=1")
     if response is None:
         return None
-    data = BeautifulSoup(response, "xml")
+    data = BeautifulSoup(response, "lxml")
     games_list = get_game_ids(data, hidePlayed)
     return get_game_info(games_list)
 

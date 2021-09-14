@@ -131,6 +131,7 @@ body {
     margin:0 auto;
     font-size: 300%;
     font-family:  "Quicksand","Lato", Arial;
+    margin-top: 135px;
 }
 
 .home-search{
@@ -228,4 +229,5 @@ body {
     display:inline;
     background: transparent;
     border: 0;
+    margin-top: 135px;
 }
