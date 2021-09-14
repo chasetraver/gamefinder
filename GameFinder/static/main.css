@@ -1,0 +1,231 @@
+.about-padding{
+    padding: 10px;
+    margin: 10px;
+}
+
+body {
+    background: url("seamless table texture.png") brown;
+    /* wood texture from myfreetextures.com https://www.myfreetextures.com/a-dark-and-deep-seamless-wood-texture/ */
+    color: white;
+    padding: 25px;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.fill-white{
+    fill: #000000;
+}
+
+.flashes{
+    border-style: solid;
+    border-color: black;
+    background: white;
+    color:red;
+    width: 30%;
+}
+
+.game-description{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom-right-radius: 2.8em;
+    border-top-left-radius: 2.8em;
+    padding: 9px;
+    padding-left: 14px;
+    font-family: "Open Sans", "Calibri", Arial;
+    background: url("darkened seamless table texture.png") black;
+}
+
+.game-description-border {
+    background: grey;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#A1A2A3, #BEC0C2);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#A1A2A3, #BEC0C2);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#A1A2A3, #BEC0C2);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#A1A2A3, #BEC0C2);
+    /* Standard syntax */
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-bottom-right-radius: 3em;
+    border-top-left-radius: 3em;
+    background-color: #000;
+}
+
+.game-image{
+    width: 18%;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: -2px;
+    white-space: nowrap;
+}
+
+.game-info {
+    font-family: "Open Sans", "Calibri", Arial;
+    width: 18%;
+    padding: 5px;
+    margin-left: 4px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: #CD7F32;
+
+}
+
+.game-inner-border {
+    box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 2.8em;
+  background: url("game-inner-wood.jpg") brown;
+}
+
+.game-outer-border {
+    background: yellow;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#c2924e, #7c5b2d);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#c2924e, #7c5b2d);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#c2924e, #7c5b2d);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#c2924e, #7c5b2d);
+    /* Standard syntax */
+    width: auto;
+    height: auto;
+    padding: 12px 5px 5px 5px;
+
+    margin-top: 25px;
+    margin-right: 18%;
+    margin-left: 18%;
+
+    border-radius: 3em;
+    border-width:20px;
+    background-color: #000;
+}
+
+.game-title{
+    font-size: 250%;
+    font-family: "Trebuchet MS", "Open Sans", Arial;
+    margin-bottom: 5px;
+}
+
+.home-title{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: table;
+    margin:0 auto;
+    font-size: 300%;
+    font-family:  "Quicksand","Lato", Arial;
+}
+
+.home-search{
+    margin-top: 5%;
+    margin-bottom: 19%;
+}
+
+.in-line-block{
+    display:inline-block;
+}
+
+.layout-footer {
+    margin: -25px;
+    margin-top: 25px;
+    padding-left: 9px;
+    font-size: 85%;
+    background-color: #412B15;
+}
+
+.no-games-search-margin{
+    margin-bottom:4.5%;
+}
+
+.no-games-bottom-margin{
+    color: transparent;
+    margin-top: 17%;
+}
+
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
+}
+
+.search-header{
+    padding-top: 200px;
+}
+
+.sticky-top-row{
+    margin-bottom: -10px;
+}
+
+.sticky-search{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #412B15;
+    margin-left: -30px;
+    padding-left: 40px;
+}
+
+.sticky-search-top-padding{
+    padding-bottom:10px;
+}
+
+.sticky-search-padding{
+    padding-left:10px;
+}
+
+.sticky-best-box{
+    padding-left: 29px;
+
+}
+
+.sticky-margin{
+    margin-bottom:24px;
+}
+.sticky-played-box{
+    padding-left: 23px;
+}
+
+.sticky-search-player-padding{
+    padding-left:108px;
+}
+
+.title-font {
+    font-size: 200%;
+}
+
+.title-image {
+    width:250px;
+    height: 290px;
+    float:left;
+    display:inline;
+    background: transparent;
+    border: 0;
+}

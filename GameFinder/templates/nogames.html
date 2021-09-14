@@ -1,0 +1,18 @@
+{% extends "search.html" %}
+{% block content %}
+
+<h2 class="center center-text no-games-search-margin">
+    No games found for "{{username}}" with those parameters.
+    <br>
+    If you believe this is incorrect, try searching again.
+    <br>
+    Occasionally the API goofs.
+    <br>
+</h2>
+
+{% endblock content%}
+
+
+{% block padding %}
+<div class="no-games-bottom-margin"> s</div>
+{% endblock padding %}
