@@ -126,8 +126,8 @@ def parse_game_data(data):
         game["minplayers"] = int(item.find("minplayers").attrs["value"])
         game["maxplayers"] = int(item.find("maxplayers").attrs["value"])
         game["bestplayers"] = calculate_best_playercount(item, game["minplayers"], game["maxplayers"])
-        game["rating"] = float(item.find("average").attrs["value"])
-        game["complexity"] = float(item.find("averageweight").attrs["value"])
+        game["rating"] = round(float(item.find("average").attrs["value"]), 1)
+        game["complexity"] = round(float(item.find("averageweight").attrs["value"]), 1)
         games_list.append(game)
     return games_list
 
