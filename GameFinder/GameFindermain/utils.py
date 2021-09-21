@@ -142,6 +142,8 @@ def save_images(image_url, gameid):
 
     #gameimage = Image.open(os.path.join(imagepath))
     gameimage = f"thumbnails/{gameid}.jpg"
+    if not os.path.exists(os.path.join(basepath, "static", gameimage)):
+        gameimage = f"thumbnails/Fail2load.png"
     return gameimage
 
 

@@ -132,11 +132,15 @@ body {
     font-size: 300%;
     font-family:  "Quicksand","Lato", Arial;
     margin-top: 135px;
+    padding-left: 10%;
+
 }
 
 .home-search{
     margin-top: 5%;
     margin-bottom: 19%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .in-line-block{
