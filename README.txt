@@ -4,8 +4,11 @@ Website *heavily* relies on the BGG XML API to get the data necessary. (https://
 As a result of this, any person searching their collection would have to have a Board Game Geek account, and have their games already uploaded to there.
 
 If you don't have an account yourself, feel free to take a look using the following users:
+nan3000
+driacan
 versifex
-
+curtc
+kentervin73
 
 Launch via executing 'run.py'
 First search may take a few minutes, as the program will download the thumbnails to the static folder for each game it does not have a thumbnail for yet. This is especially true is the first game collection ran is particularly large.
