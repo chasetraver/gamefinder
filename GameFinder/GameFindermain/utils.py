@@ -120,7 +120,9 @@ def parse_game_data(data):
         game["name"] = item.find("name").attrs["value"]
         # Grabbing ID again because passing each ID separately seems like a PitA. Needed for image naming convention.
         gameid = item["id"]
-        game["image"] = save_images(item.find("thumbnail").text, gameid)
+        thumbnail = item.find("thumbnail")
+        if thumbnail is not None:
+            game["image"] = save_images(thumbnail.text, gameid)
         # Markup used to turn the escaped HTML tags to English
         game["description"] = Markup(item.find("description").text).striptags()
         game["minplayers"] = int(item.find("minplayers").attrs["value"])
