@@ -20,8 +20,8 @@ class BGGError(Exception):
         return self.message
 
 
-def recommend_games(playercount, username, bestonly=False, hidePlayed=False, minimumcomplexity=0, maximumcomplexity=5):
-    usergames = get_games(username, hidePlayed)
+def recommend_games(playercount, username, bestonly=False, hidePlayed=False, hideExpansions=False, minimumcomplexity=0, maximumcomplexity=5):
+    usergames = get_games(username, hidePlayed, hideExpansions)
     if usergames is None:
         return None
     # filter out games that can't be played with the current playercount.
@@ -29,31 +29,35 @@ def recommend_games(playercount, username, bestonly=False, hidePlayed=False, min
     return filteredgames
 
 
-def get_games(username, hidePlayed):
-    response = query_bgg(f"collection?username={username}&own=1")
+def get_games(username, hidePlayed, hideExpansions):
+    query = f"collection?username={username}&own=1"
+    if hidePlayed:
+        query = query + "&played=0"
+    if hideExpansions:
+        query = query + "&excludesubtype=boardgameexpansion"
+
+    response = query_bgg(query)
     if response is None:
         return None
     data = BeautifulSoup(response, "lxml")
-    games_list = get_game_ids(data, hidePlayed)
+    games_list = get_game_ids(data)
     return get_game_info(games_list)
 
 
-def query_bgg(query, delay=0):
+def query_bgg(query):
     response = requests.get(f"https://www.boardgamegeek.com/xmlapi2/{query}")
     # print("I pinged BGG here")
     if response.status_code == 200:
         if response.text is None:
-            delay = delay + 1
-            time.sleep(delay)
-            query_bgg(query, delay)
+            time.sleep(2)
+            query_bgg(query)
         else:
             return response.text
 
     elif response.status_code == 202:
         print("Retrying...")
-        delay = delay + 1
-        time.sleep(delay)
-        query_bgg(query, delay)
+        time.sleep(2)
+        query_bgg(query)
 
     elif response.status_code == 404:
         print(f"404, {query} Not Found, try again")
@@ -64,13 +68,10 @@ def query_bgg(query, delay=0):
         raise BGGError(response.status_code)
 
 
-def get_game_ids(data, hidePlayed):
+def get_game_ids(data):
     item_list = data.find_all("item")
     games_list = []
     for item in item_list:
-        if hidePlayed:
-            if int(item.find("numplays").text) != 0:
-                continue
         id_dict = item.attrs['objectid']
         games_list.append(id_dict)
     return games_list

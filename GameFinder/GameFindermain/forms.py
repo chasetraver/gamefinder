@@ -17,6 +17,7 @@ class GameFinderForm(FlaskForm):
     minimumcomplexity = SelectField("Minimum Complexity", choices=[0, 1, 2, 3, 4, 5])
     maximumcomplexity = SelectField("Maximum Complexity", choices=[0, 1, 2, 3, 4, 5], default=5)
     hideplayed = BooleanField("Hide Played")
+    hideexpansions = BooleanField("Hide Expansions")
     submit = SubmitField('Find Games!')
 
 

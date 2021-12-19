@@ -14,6 +14,7 @@ def home():
 
             return redirect(url_for('search', username=form.username.data, numplayers=form.numplayers.data,
                                     bestonly=form.bestonly.data, hideplayed=form.hideplayed.data,
+                                    hideexpansions=form.hideexpansions.data,
                                     minimumcomplexity=form.minimumcomplexity.data,
                                     maximumcomplexity=form.maximumcomplexity.data))
         else:
@@ -24,9 +25,9 @@ def home():
         return render_template('home.html', title='Gamefinder', form=form)
 
 
-@app.route("/search/<string:username>/<int:numplayers>/<bestonly>/<hideplayed>/<minimumcomplexity>/<maximumcomplexity>/"
-    , methods=['GET', 'POST'])
-def search(username, numplayers, bestonly="False", hideplayed="False", minimumcomplexity=0, maximumcomplexity=5):
+@app.route("/search/<string:username>/<int:numplayers>/<bestonly>/<hideplayed>/<hideexpansions>/"
+           "<minimumcomplexity>/<maximumcomplexity>/", methods=['GET', 'POST'])
+def search(username, numplayers, bestonly="False", hideplayed="False", hideexpansions="False", minimumcomplexity=0, maximumcomplexity=5):
     form = GameFinderForm()
 
     if request.method == 'POST':
@@ -34,7 +35,8 @@ def search(username, numplayers, bestonly="False", hideplayed="False", minimumco
 
             return redirect(url_for('search', username=form.username.data, numplayers=form.numplayers.data,
                                     bestonly=form.bestonly.data, minimumcomplexity=form.minimumcomplexity.data,
-                                    maximumcomplexity=form.maximumcomplexity.data, hideplayed=form.hideplayed.data))
+                                    maximumcomplexity=form.maximumcomplexity.data, hideplayed=form.hideplayed.data,
+                                    hideexpansions=form.hideexpansions.data))
         else:
             flash("Invalid username, please try again.")
             return render_template('home.html', title='GameFinder', form=form)
@@ -43,9 +45,10 @@ def search(username, numplayers, bestonly="False", hideplayed="False", minimumco
         # convert strings from URL to booleans
         bestonly = bestonly == "True"
         hideplayed = hideplayed == "True"
+        hideexpansions = hideexpansions == "True"
 
         # query BGG for user's games & sort them
-        games = recommend_games(int(numplayers), username, bestonly, hideplayed,
+        games = recommend_games(int(numplayers), username, bestonly, hideplayed, hideexpansions,
                                 int(minimumcomplexity), int(maximumcomplexity))
 
         # handling if user does not exist or if they own no games
@@ -83,4 +86,4 @@ def servererror(e):
     error = "Sorry, something went wrong on our end. Please try again."
     return render_template('error.html', error=error), 500
 
-    # TODO about/contact pages
+
